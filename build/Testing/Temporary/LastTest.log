@@ -1,0 +1,76 @@
+Start testing: Feb 03 08:43 UTC
+----------------------------------------------------------
+1/2 Testing: unit_tests
+1/2 Test: unit_tests
+Command: "/root/code/phoenix-shm/build/unit_tests"
+Directory: /root/code/phoenix-shm/build
+"unit_tests" start time: Feb 03 08:43 UTC
+Output:
+----------------------------------------------------------
+[==========] Running 7 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from SpscRingBufferTest
+[ RUN      ] SpscRingBufferTest.BasicPushPop
+[       OK ] SpscRingBufferTest.BasicPushPop (0 ms)
+[ RUN      ] SpscRingBufferTest.PushPopMultiple
+[       OK ] SpscRingBufferTest.PushPopMultiple (0 ms)
+[ RUN      ] SpscRingBufferTest.WrapAround
+[       OK ] SpscRingBufferTest.WrapAround (0 ms)
+[ RUN      ] SpscRingBufferTest.ForceAdvanceReadIndex
+[       OK ] SpscRingBufferTest.ForceAdvanceReadIndex (0 ms)
+[----------] 4 tests from SpscRingBufferTest (0 ms total)
+
+[----------] 3 tests from ThreadMonitorTest
+[ RUN      ] ThreadMonitorTest.InitialState
+[       OK ] ThreadMonitorTest.InitialState (0 ms)
+[ RUN      ] ThreadMonitorTest.BeginEndTransaction
+[       OK ] ThreadMonitorTest.BeginEndTransaction (0 ms)
+[ RUN      ] ThreadMonitorTest.Reset
+[       OK ] ThreadMonitorTest.Reset (0 ms)
+[----------] 3 tests from ThreadMonitorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 7 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"unit_tests" end time: Feb 03 08:43 UTC
+"unit_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: hello_world
+2/2 Test: hello_world
+Command: "/root/code/phoenix-shm/build/integration_hello_world"
+Directory: /root/code/phoenix-shm/build
+"hello_world" start time: Feb 03 08:43 UTC
+Output:
+----------------------------------------------------------
+PhoenixIPC Hello World Example
+This example demonstrates the shared memory layout.
+PhoenixShmLayout size: 148992 bytes
+
+Configuration:
+  Normal workers: 4
+  Normal queue capacity: 1024
+  VIP workers: 2
+  VIP queue capacity: 256
+  Cache line size: 64 bytes
+
+MsgHeader structure:
+  Size: 16 bytes
+  seq_id: 0
+  func_id: 8
+  payload_len: 12
+
+Hello World example completed successfully!
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"hello_world" end time: Feb 03 08:43 UTC
+"hello_world" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 03 08:43 UTC

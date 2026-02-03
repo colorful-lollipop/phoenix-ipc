@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/ipc_client_test.dir/examples/ipc_client_example.cpp.o -o ipc_client_test  libphoenix_ipc_impl.a
