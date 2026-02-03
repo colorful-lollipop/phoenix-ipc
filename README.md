@@ -70,7 +70,7 @@ int main() {
         return 1;
     }
     
-    // 注册请求处理器
+    // 注册请求处理器 (1001 = 功能ID, 类似RPC方法编号)
     server->RegisterHandler(1001, HandleRequest);
     server->RegisterHandler(1002, [](auto& h, auto* p, auto& r, auto* rp) {
         r.func_id = h.func_id;
@@ -108,7 +108,7 @@ int main() {
         return 1;
     }
     
-    // 连接到服务器
+    // 连接到服务器 (5000 = 超时时间, 毫秒)
     if (!client->Connect(5000)) {
         std::cerr << "连接服务器超时" << std::endl;
         return 1;
@@ -116,7 +116,7 @@ int main() {
     
     std::cout << "已连接到服务器" << std::endl;
     
-    // 发送同步请求
+    // 发送同步请求 (1001 = 功能ID, 最后一个5000 = 请求超时毫秒)
     std::string request_data = "Hello, PhoenixIPC!";
     auto response = client->Call(1001, 
                                   reinterpret_cast<const uint8_t*>(request_data.data()),
