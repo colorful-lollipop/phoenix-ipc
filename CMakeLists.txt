@@ -32,10 +32,11 @@ target_link_libraries(phoenix_ipc INTERFACE
     phoenix_core
 )
 
-# PhoenixIPC implementation library (contains .cpp files)
+# PhoenixIPC implementation library (static library for SPSC producer/consumer)
 add_library(phoenix_ipc_impl STATIC
-    src/ipc/ipc_server.cpp
-    src/ipc/ipc_client.cpp
+    src/ipc/phoenix_producer.cpp
+    src/ipc/phoenix_consumer.cpp
+    src/coordination/coordination_file.cpp
 )
 
 target_include_directories(phoenix_ipc_impl PRIVATE
@@ -43,6 +44,33 @@ target_include_directories(phoenix_ipc_impl PRIVATE
 )
 target_link_libraries(phoenix_ipc_impl PRIVATE
     phoenix_ipc
+    pthread
+)
+
+# Producer example
+add_executable(simple_producer
+    examples/simple_producer.cpp
+)
+
+target_include_directories(simple_producer PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+target_link_libraries(simple_producer PRIVATE
+    phoenix_ipc
+    phoenix_ipc_impl
+)
+
+# Consumer example
+add_executable(simple_consumer
+    examples/simple_consumer.cpp
+)
+
+target_include_directories(simple_consumer PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+target_link_libraries(simple_consumer PRIVATE
+    phoenix_ipc
+    phoenix_ipc_impl
 )
 
 # Executables for testing
@@ -68,31 +96,6 @@ target_include_directories(integration_hello_world PRIVATE
 )
 target_link_libraries(integration_hello_world PRIVATE
     phoenix_ipc
-)
-
-add_executable(integration_crash_recovery
-    test/crash_recovery_test.cpp
-)
-
-target_include_directories(integration_crash_recovery PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-target_link_libraries(integration_crash_recovery PRIVATE
-    phoenix_ipc
-    GTest::GTest
-    GTest::Main
-)
-
-add_executable(ipc_client_test
-    examples/ipc_client_example.cpp
-)
-
-target_include_directories(ipc_client_test PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-target_link_libraries(ipc_client_test PRIVATE
-    phoenix_ipc
-    phoenix_ipc_impl
 )
 
 # Stress and concurrency tests
