@@ -1,2 +1,0 @@
-/usr/bin/ar qc libphoenix_ipc_impl.a CMakeFiles/phoenix_ipc_impl.dir/src/ipc/ipc_server.cpp.o CMakeFiles/phoenix_ipc_impl.dir/src/ipc/ipc_client.cpp.o
-/usr/bin/ranlib libphoenix_ipc_impl.a

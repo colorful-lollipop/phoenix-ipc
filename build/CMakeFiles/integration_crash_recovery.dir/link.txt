@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/integration_crash_recovery.dir/test/crash_recovery_test.cpp.o -o integration_crash_recovery  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a

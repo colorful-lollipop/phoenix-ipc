@@ -1,8 +1,13 @@
--e build/
-.cache/
+# Build artifacts
+build/
 *.o
 *.a
-*.swp
+*.so
+
+# Editor and IDE
 .vscode/
 .idea/
+*.swp
 
+# Clangd cache
+.cache/

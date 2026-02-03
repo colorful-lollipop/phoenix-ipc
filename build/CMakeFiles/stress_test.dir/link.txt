@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/stress_test.dir/test/stress_test.cpp.o -o stress_test  -lpthread /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a
