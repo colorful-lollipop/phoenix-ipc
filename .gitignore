@@ -1,5 +1,8 @@
 -e build/
+.cache/
 *.o
 *.a
-.DS_Store
+*.swp
+.vscode/
+.idea/
 
